@@ -1,8 +1,20 @@
+import { INestApplication } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import bootstraps from './bootstrap';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(process.env.PORT ?? 3000);
+
+  for (const bs of bootstraps) {
+    await new bs(app).run();
+  }
+
+  return app;
 }
-bootstrap();
+
+bootstrap().then(afterBootstrap).catch(console.log);
+
+async function afterBootstrap(app: INestApplication) {
+  console.log(`Server running on ${await app.getUrl()}`);
+}
