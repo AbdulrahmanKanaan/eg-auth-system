@@ -6,7 +6,7 @@ An authentication system that uses NestJS for the server side and ReactJS for th
 
 to make it easy to run and test, I created a docker-compose file that'll do everything for you :)
 
-so running the project for is as easy as running the following command inside the project directory
+so running the project is as easy as running the following command inside the project directory
 
 ```sh
 git clone https://github.com/AbdulrahmanKanaan/eg-auth-system.git
