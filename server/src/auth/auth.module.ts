@@ -12,7 +12,7 @@ import { ConfigService } from 'src/config';
       useFactory: (configService: ConfigService) => ({
         global: true,
         secret: configService.jwtSecret(),
-        signOptions: { expiresIn: '60s' },
+        signOptions: { expiresIn: '1h' },
       }),
       inject: [ConfigService],
     }),

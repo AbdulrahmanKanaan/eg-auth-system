@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { FaSpinner } from "react-icons/fa6";
+import { Spinner } from "./spinner.component";
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   loading?: boolean;
@@ -24,7 +24,7 @@ export const SubmitBtn: React.FC<Props> = ({
       )}
       disabled={disabled || loading}
     >
-      {loading && <FaSpinner className="animate-spin" />}
+      {loading && <Spinner />}
       {children}
     </button>
   );

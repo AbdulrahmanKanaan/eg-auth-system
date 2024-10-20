@@ -63,7 +63,11 @@ export class AuthService {
 
   public async me(userId: string) {
     const user = await this.usersService.findById(userId);
-    return user;
+    return {
+      id: user.id,
+      email: user.email,
+      name: user.name,
+    };
   }
 
   public async verifyToken(token: string) {
