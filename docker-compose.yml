@@ -1,0 +1,27 @@
+services:
+  db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    # volumes:
+    #   - ./data:/data/db
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - JWT_SECRET=p3YWr6BYeglpWDaKjIxyoTUQiS9iBhL6G51Cc564HCY=
+      - DB_URL=mongodb://db:27017/auth-system
+    depends_on:
+      - db
+  frontend:
+    build:
+      context: ./client
+      dockerfile: .docker/Dockerfile
+      args:
+        VITE_API_URL: "http://localhost:3000"
+    ports:
+      - "80:80"
