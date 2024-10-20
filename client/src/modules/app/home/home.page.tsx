@@ -9,7 +9,7 @@ export const HomePage: React.FunctionComponent<Props> = () => {
   return (
     <div className="flex min-h-dvh flex-col items-center justify-center gap-4">
       <h1 className="text-3xl font-bold">Home Page</h1>
-      <p className="text-lg">Welcome {user?.name}</p>
+      <p className="text-lg">Welcome to the application. {user?.name} 😁</p>
       <button
         onClick={logout}
         className="mt-4 rounded bg-red-500 px-4 py-2 text-white"
