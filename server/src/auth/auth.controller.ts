@@ -1,4 +1,12 @@
-import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Post,
+} from '@nestjs/common';
+import { IsProtected, UserId } from 'src/common/decorators';
 import { AuthService } from './auth.service';
 import { LoginDto, RegisterDto } from './dto';
 
@@ -16,5 +24,12 @@ export class AuthController {
   @Post('register')
   public async register(@Body() registerDto: RegisterDto) {
     return this.authService.register(registerDto);
+  }
+
+  @HttpCode(HttpStatus.OK)
+  @IsProtected()
+  @Get('me')
+  public async me(@UserId() userId: string) {
+    return this.authService.me(userId);
   }
 }

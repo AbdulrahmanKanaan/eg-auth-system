@@ -61,6 +61,16 @@ export class AuthService {
     return { token };
   }
 
+  public async me(userId: string) {
+    const user = await this.usersService.findById(userId);
+    return user;
+  }
+
+  public async verifyToken(token: string) {
+    const payload = await this.jwtService.verifyAsync(token);
+    return payload;
+  }
+
   private async generateToken(payload: object): Promise<string> {
     const token = await this.jwtService.signAsync(payload);
     return token;

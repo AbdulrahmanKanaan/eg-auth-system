@@ -16,6 +16,10 @@ export class SwaggerBootstrap extends Bootstrap {
       .setTitle('Auth System')
       .setDescription('An authentication system')
       .setVersion('1.0')
+      .addSecurity('user', {
+        scheme: 'bearer',
+        type: 'http',
+      })
       .build();
 
     const documentFactory = () =>

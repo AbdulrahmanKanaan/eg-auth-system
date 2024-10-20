@@ -43,6 +43,18 @@ export class UsersService {
 
     return userDocument;
   }
+
+  public async findById(id: string): Promise<UserDocument> {
+    // Find user document with provided id
+    const userDocument: UserDocument = await this.userModel.findById(id);
+
+    // If user with provided id not found, throw an error
+    if (!userDocument) {
+      throw new NotFoundException('user with provided id not found!');
+    }
+
+    return userDocument;
+  }
 }
 
 export namespace UserService {
