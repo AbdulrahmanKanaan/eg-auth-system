@@ -9,6 +9,8 @@ to make it easy to run and test, I created a docker-compose file that'll do ever
 so running the project for is as easy as running the following command inside the project directory
 
 ```sh
+git clone https://github.com/AbdulrahmanKanaan/eg-auth-system.git
+cd eg-auth-system
 docker compose up
 ```
 
