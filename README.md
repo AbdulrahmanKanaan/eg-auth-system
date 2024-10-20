@@ -14,6 +14,8 @@ cd eg-auth-system
 docker compose up
 ```
 
+then go to <http://localhost>
+
 ## More info
 
 for more info about the server or the client, you can check the README files inside the corresponding directory
